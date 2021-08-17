@@ -1,0 +1,38 @@
+.analog-clock {
+    width: 140px;
+    height: 140px;
+}
+
+.clock-face {
+    stroke: black;
+    fill: black;
+}
+
+.clock-inner-face {
+    stroke: black;
+    fill: #ff9933;
+}
+
+.h-hand, .m-hand, .s-hand, .analog-clocks-tail {
+    stroke: black;
+    stroke-linecap: round;
+}
+
+.h-hand {
+    stroke-width: 3px;
+    stroke: #fff;
+}
+
+.m-hand {
+    stroke-width: 2px;
+    stroke: #fff;
+}
+
+.s-hand {
+    stroke-width: 1px;
+    stroke: #fff;
+}
+
+.text {
+    stroke: #fff;
+}

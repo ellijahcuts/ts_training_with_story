@@ -5,18 +5,20 @@ export default {
 }
 
 export const SetTimeOutEx = () => {
-    const [fake, setFake] = useState(1)
     const [counter, setCounter] = useState(1)
 
     useEffect(() => {
-        setInterval(() => {
+       const intervalID = setInterval(() => {
             console.log("tick: " +counter)
-            setCounter((state)=>state+1)
-        },1000 )
-    }, [])
+            setCounter(state=>state+1)
+        },1000)
+        return ()=>{
+            clearInterval(intervalID)
+        }
+    },[])
 
     return <>
-        Hello mother fucker, Counter:{counter} ---- fake:{fake}
+        Hello mother fucker, Counter:{counter}
 
     </>
 }
