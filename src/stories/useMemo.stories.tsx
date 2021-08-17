@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 export default {
     title: 'ts_learning/React.memo.demo',
@@ -33,3 +33,33 @@ export const Example1 = () => {
     </>
 
 }
+export const LikeUseCallback = () => {
+    console.log("LiKeUC")
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(["RS", "JS", "ForEacsh"])
+
+    const newArray = useMemo(() => {
+        const newArray = books.filter(u => u.toLowerCase().indexOf('s') > -1)
+        return newArray
+    }, [books])
+
+    const addBook =useCallback(() => {
+        console.log(books)
+        const newBook = [...books,"Angulars " + new Date().getTime()]
+        setBooks(newBook)
+    },[books])
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        {counter}
+        <Book books={newArray} addBook={addBook}/>
+    </>
+
+}
+const BooksSecret = (props: { books: Array<string>, addBook:()=>void }) => {
+    console.log("bok")
+    return <div>
+        <button onClick={props.addBook}>add Book</button>
+        {props.books.map((b, i) => <div>{b}</div>)}
+    </div>
+}
+const Book = React.memo(BooksSecret)

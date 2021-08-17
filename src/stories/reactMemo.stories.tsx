@@ -15,7 +15,7 @@ export const DifficultCountingExample = () => {
     resultA = useMemo(() => {
         for (let i = 1; i <= a; i++) {
             let fake = 0
-            while (fake < 1000000) {
+            while (fake < 10000000) {
                 fake++
                 const fakeValue = Math.random()
             }
