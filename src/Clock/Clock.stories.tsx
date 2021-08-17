@@ -10,5 +10,11 @@ export default {
 
 const Template: Story = (args) => <Clock {...args}/>;
 
-export const Clocks = Template.bind({});
-Clocks.args = {}
+export const ClocksAnalog = Template.bind({});
+ClocksAnalog.args = {
+    mode: "analog"
+}
+export const ClocksDigital = Template.bind({});
+ClocksDigital.args = {
+    mode: "digital"
+}
